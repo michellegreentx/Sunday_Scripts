@@ -29,4 +29,8 @@ add.me <- function(x,y){
 
 add.me(3,4)
 
-#
+#installing packages
+install.packages("dplyr", dependencies=TRUE)
+
+#installed but not loaded yet, so still need to load
+library("dplyr")
