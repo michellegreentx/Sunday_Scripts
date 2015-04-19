@@ -18,7 +18,7 @@ ZIP_FILE_NAME="rawSplitCountries.zip"
 
 echo Downloading zipped data file from $ZIP_FILE_URL
 sleep 2
-curl -L $ZIP_FILE_URL -o $ZIP_FILE_NAME
+curl -k -L $ZIP_FILE_URL -o $ZIP_FILE_NAME
 
 echo Unzipping file. 
 sleep 2
