@@ -2,7 +2,7 @@
 title: "Gapminder Markdown"
 author: "michellegreen"
 date: "Sunday, April 19, 2015"
-output: html_document
+output: pdf_document
 ---
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
@@ -30,7 +30,7 @@ qplot(x=year, y=gdpPercap, data=Costa_rica, geom="point",
   > Between 1950 and 1975 the per capita GDP tripled.  
   > The per capita GDP dropped slightly fromm 1975 -1980, but then tripled again in the next 15 years.  
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 Congo <- gap.in %>%
   filter(country=="Congo, Dem. Rep.") %>%
   select(gdpPercap, year)
@@ -40,7 +40,7 @@ qplot(x=year, y=gdpPercap, data=Congo, geom="point",
 ```
 ##Congo  
   > The per capita GDP of the Congo has steadily decreased over the years.  
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 Cote_dIvoire <- gap.in %>%
   filter(country=="Cote dIvoire") %>%
   select(gdpPercap, year)
