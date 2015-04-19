@@ -1,0 +1,59 @@
+---
+title: "Gapminder Markdown"
+author: "michellegreen"
+date: "Sunday, April 19, 2015"
+output: html_document
+---
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+gap.in <- read.table("output/combined_gapMinder.tsv", sep="\t", header=TRUE)
+
+library("dplyr")
+
+install.packages("ggplot2")
+library("ggplot2")
+
+Costa_rica <- gap.in %>%
+  filter(country=="Costa Rica") %>%
+  select(gdpPercap, year)
+qplot(x=year, y=gdpPercap, data=Costa_rica, geom="point", 
+      main="GDP by Year of Costa Rica",
+       xlab="Year", ylab="GDP Per Capita")
+```
+#Costa Rica  
+  > Between 1950 and 1975 the per capita GDP tripled.  
+  > The per capita GDP dropped slightly fromm 1975 -1980, but then tripled again in the next 15 years.  
+
+```{r}
+Congo <- gap.in %>%
+  filter(country=="Congo, Dem. Rep.") %>%
+  select(gdpPercap, year)
+qplot(x=year, y=gdpPercap, data=Congo, geom="point", 
+      main="GDP by Year of Congo, Dem. Rep.",
+      xlab="Year", ylab="GDP Per Capita")
+```
+#Congo  
+  > The per capita GDP of the Congo has steadily decreased over the years.  
+```{r}
+Cote_dIvoire <- gap.in %>%
+  filter(country=="Cote dIvoire") %>%
+  select(gdpPercap, year)
+qplot(x=year, y=gdpPercap, data=Cote_dIvoire, geom="point", 
+      main="GDP by Year of Congo, Dem. Rep.",
+       xlab="Year", ylab="GDP Per Capita")
+```
+#Cote d'Ivoire  
+  > The per capita GDP of Cote d'Ivoire increased until 1980 and then steadily decreased since.   years.
+
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
