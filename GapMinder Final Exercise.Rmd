@@ -9,12 +9,12 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r}
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
 gap.in <- read.table("output/combined_gapMinder.tsv", sep="\t", header=TRUE)
 
 library("dplyr")
 
-install.packages("ggplot2")
+#install.packages("ggplot2")
 library("ggplot2")
 
 Costa_rica <- gap.in %>%
@@ -24,7 +24,9 @@ qplot(x=year, y=gdpPercap, data=Costa_rica, geom="point",
       main="GDP by Year of Costa Rica",
        xlab="Year", ylab="GDP Per Capita")
 ```
-#Costa Rica  
+#Info by Country  
+
+##Costa Rica  
   > Between 1950 and 1975 the per capita GDP tripled.  
   > The per capita GDP dropped slightly fromm 1975 -1980, but then tripled again in the next 15 years.  
 
@@ -36,7 +38,7 @@ qplot(x=year, y=gdpPercap, data=Congo, geom="point",
       main="GDP by Year of Congo, Dem. Rep.",
       xlab="Year", ylab="GDP Per Capita")
 ```
-#Congo  
+##Congo  
   > The per capita GDP of the Congo has steadily decreased over the years.  
 ```{r}
 Cote_dIvoire <- gap.in %>%
@@ -46,10 +48,13 @@ qplot(x=year, y=gdpPercap, data=Cote_dIvoire, geom="point",
       main="GDP by Year of Congo, Dem. Rep.",
        xlab="Year", ylab="GDP Per Capita")
 ```
-#Cote d'Ivoire  
-  > The per capita GDP of Cote d'Ivoire increased until 1980 and then steadily decreased since.   years.
+##Cote d'Ivoire  
+  > The per capita GDP of Cote d'Ivoire increased until 1980 and then steadily decreased since.   years.  
+  
+##Info by Continent
+```{r}
 
-
+```
 You can also embed plots, for example:
 
 ```{r, echo=FALSE}
