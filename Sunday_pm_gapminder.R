@@ -59,3 +59,14 @@ gap.in %>%
   select(continent,pop, year) %>%
   group_by(continent, year) %>%
   summarize(mean(pop), trim=0, na.rm=FALSE) -> data.out
+
+data(iris)
+attach(iris)
+
+#install tidyr package
+install.packages("tidyr", dependencies=TRUE)
+library(tidyr)
+
+#turn iris dataset from wide into long format 
+#(there's an option called spread that does the opposite)
+iris.long <- gather(iris, "Measurement", "Value", 1:4)
